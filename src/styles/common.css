@@ -7,8 +7,8 @@
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   
-  /* फक्त सॉलिड डार्क कलर – image काढली */
-  background-color: #0a0e17;  /* डार्क नेव्ही ब्लू-ब्लॅक */
+  /**/
+  background-color: #0a0e17;  
   
   color: #f1f5f9;
   min-height: 100vh;
@@ -16,12 +16,11 @@ body {
   overflow-x: hidden;
 }
 
-/* डार्क ओव्हरले + हलका ब्लर – readability साठी (image नसतानाही चांगला लूक) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(10, 14, 23, 0.70); /* कमी opacity – 0.70 ठेवला, गरजेनुसार 0.6–0.8 करा */
+  background: rgba(10, 14, 23, 0.70); 
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: -2;
@@ -139,7 +138,7 @@ h1, h2, h3 {
   letter-spacing: 0.4px;
 }
 
-/* Charts & canvas fix – analytics साठी महत्वाचे */
+/* Charts & canvas fix – analytics important */
 canvas {
   max-width: 100% !important;
   height: auto !important;
