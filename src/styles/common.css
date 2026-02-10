@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* फक्त सॉलिड डार्क कलर – image काढली */
+  background-color: #0a0e17;  /* डार्क नेव्ही ब्लू-ब्लॅक */
+  
+  color: #f1f5f9;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* डार्क ओव्हरले + हलका ब्लर – readability साठी (image नसतानाही चांगला लूक) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 23, 0.70); /* कमी opacity – 0.70 ठेवला, गरजेनुसार 0.6–0.8 करा */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: -2;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  background: rgba(10, 14, 23, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 1.3rem 2.8rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.20);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+  z-index: 100;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #a5b4fc, #c7d2fe, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientFlow 6s linear infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 260px;
+  background: rgba(10, 14, 23, 0.96);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(99, 102, 241, 0.18);
+  padding: 2.2rem 1.3rem;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar a {
+  display: block;
+  padding: 1.1rem 1.5rem;
+  color: #94a3b8;
+  text-decoration: none;
+  border-radius: 14px;
+  margin: 0.6rem 0;
+  transition: all 0.35s ease;
+  font-weight: 500;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: rgba(99, 102, 241, 0.25);
+  color: #e0e7ff;
+  transform: translateX(10px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.25);
+}
+
+.content {
+  flex: 1;
+  padding: 2.8rem;
+  overflow-y: auto;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+/* Premium glassmorphism + 3D card effect */
+.card {
+  background: rgba(30, 41, 59, 0.50);
+  backdrop-filter: blur(18px) saturate(190%);
+  -webkit-backdrop-filter: blur(18px) saturate(190%);
+  border: 1px solid rgba(99, 102, 241, 0.30);
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.55),
+    inset 0 3px 8px rgba(255, 255, 255, 0.08);
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: perspective(1200px) translateZ(0);
+}
+
+.card:hover {
+  transform: perspective(1200px) translateY(-14px) translateZ(30px) rotateX(4deg) rotateY(4deg);
+  box-shadow: 
+    0 35px 80px rgba(99, 102, 241, 0.32),
+    inset 0 3px 12px rgba(255, 255, 255, 0.12);
+}
+
+h1, h2, h3 {
+  color: #f1f5f9;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* Charts & canvas fix – analytics साठी महत्वाचे */
+canvas {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Overflow prevention */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Content safety */
+.app, .main-content, .content, .card {
+  position: relative;
+  z-index: 2;
+}

@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import OverviewDashboard from './pages/OverviewDashboard';
+import EmployeeDashboard from './pages/EmployeeDashboard';
+import AnalyticsDashboard from './pages/AnalyticsDashboard';
+import AddEmployeeDashboard from './pages/AddEmployeeDashboard';
+import DepartmentDashboard from './pages/DepartmentDashboard';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import './styles/common.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app">
+        <Header />
+        <div className="main-content">
+          <Sidebar />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<OverviewDashboard />} />
+              <Route path="/employees" element={<EmployeeDashboard />} />
+              <Route path="/analytics" element={<AnalyticsDashboard />} />
+              <Route path="/add-employee" element={<AddEmployeeDashboard />} />
+              <Route path="/departments" element={<DepartmentDashboard />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 

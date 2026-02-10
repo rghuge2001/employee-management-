@@ -1,0 +1,62 @@
+.analytics-dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+}
+
+/* Make charts containers glass too */
+.charts-grid > div {
+  height: 380px;
+  padding: 1.2rem;
+}
+.analytics-dashboard {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 2rem;
+}
+
+.chart-container {
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 420px;           /* important for pie chart shape */
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-container h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #e0e7ff;
+  text-align: center;
+}
+
+.loading, .no-data, .error-message, .no-chart-data {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #94a3b8;
+  font-size: 1.2rem;
+}
+
+.error-message {
+  color: #ef4444;
+  font-weight: 500;
+}
